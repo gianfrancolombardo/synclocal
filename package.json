@@ -2,7 +2,7 @@
     "name": "synclocal",
     "displayName": "SyncLocal",
     "description": "Sync your project with another folder un you local computer, like sync you repository folder with your Wamp folder ",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "glombardo",
     "engines": {
         "vscode": "^1.25.0"
@@ -49,5 +49,9 @@
     "dependencies": {
         "@types/fs-extra": "^5.0.4",
         "fs-extra": "^7.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gianfrancolombardo/synclocal.git"
     }
 }
