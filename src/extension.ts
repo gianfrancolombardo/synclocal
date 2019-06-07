@@ -3,7 +3,6 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as path from 'path';
-//import * as fs from 'fs';
 import * as fs from 'fs-extra';
 
 
@@ -14,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
     if (dest == "" || dest == null)
         vscode.window.showErrorMessage("The value 'sync local.destination' in setting.json is required");    
 
-    vscode.workspace.onDidSaveTextDocument((e)=> {
+    vscode.workspace.onDidSaveTextDocument((e:any)=> {
         let relativepath = e.fileName.replace(root, "");
 
         copyFileSync(e.fileName, dest + relativepath);
@@ -23,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
     
     let disposable = vscode.commands.registerCommand('extension.sync', () => {
         dest = String(vscode.workspace.getConfiguration("synclocal").get("destination")) || "";
-        fs.copy(root, dest, function (err) {
+        fs.copy(root, dest, function (err:any) {
             if (err)
                 vscode.window.showErrorMessage(err.message);    
             vscode.window.showInformationMessage('Copy completed!');    
